@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.animation.AnimationUtils
 import com.i502tech.gitclubkotlin.R
-import com.i502tech.gitclubkotlin.view.MyActivity
+import com.i502tech.gitclubkotlin.view.activity.MyActivity
 import kotlinx.android.synthetic.main.layout_fb.view.*
 
 

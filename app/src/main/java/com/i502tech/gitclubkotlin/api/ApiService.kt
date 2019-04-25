@@ -23,5 +23,22 @@ interface ApiService {
     @POST("getArticleList")
     fun getArticleList(@Query("page")page:Int, @Query("size")size:Int): Observable<BaseResponse<List<Article>>>
 
+    //获取开源库的总收录数
+    @POST("getArticleTotals")
+    fun getArticleTotals(): Observable<BaseResponse<Int>>
+
+    //关键字查询
+    @POST("query")
+    fun query(@Query("page")page:Int, @Query("size")size:Int, @Query("query")query: String): Observable<BaseResponse<List<Article>>>
+
+    //我的点赞(收藏)文章列表
+    @POST("getMyStarArticles")
+    fun getMyStarArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("user_id")user_id: Int): Observable<BaseResponse<List<Article>>>
+
+    //获取我贡献的文章列表
+    @POST("getMyContributeArticles")
+    fun getMyContributeArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("user_id")user_id: Int): Observable<BaseResponse<List<Article>>>
+
+
 
 }

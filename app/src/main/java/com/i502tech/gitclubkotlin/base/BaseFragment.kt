@@ -1,5 +1,6 @@
 package com.i502tech.gitclubkotlin.base
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -102,6 +103,17 @@ abstract class BaseFragment : RxFragment() {
     protected open fun hide() {}
 
     protected open fun show() {}
+
+
+    @SuppressLint("ShowToast")
+    fun toast(string: String?){
+        if (mToast == null){
+            mToast = Toast.makeText(mContext, string, Toast.LENGTH_SHORT)
+        }else{
+            mToast?.setText(string)
+        }
+        mToast?.show()
+    }
 
 
 }

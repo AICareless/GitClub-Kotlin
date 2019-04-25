@@ -17,11 +17,11 @@ class UserViewModel : ViewModel() {
     fun loginRegister(type: String, userName: String, password: String): MutableLiveData<Resource<User>> {
         liveData.postValue(Resource.loading(null))
         if (type == "登录"){
-            HttpUtils.ApiFunc(HttpUtils.apiService().login(userName, password)) {
+            HttpUtils.create(HttpUtils.apiService().login(userName, password)) {
                 liveData.postValue(it)
             }
         }else{
-            HttpUtils.ApiFunc(HttpUtils.apiService().register(userName, password)) {
+            HttpUtils.create(HttpUtils.apiService().register(userName, password)) {
                 liveData.postValue(it)
             }
         }

@@ -19,4 +19,6 @@ data class User(
         var score: Int,
         var session_key: String,
         var user_id: Int
-):Parcelable
+):Parcelable {
+    constructor() : this(0, "","","","","","",0,"",0)
+}

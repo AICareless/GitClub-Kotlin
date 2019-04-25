@@ -15,16 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyActivity" />
+        <activity android:name=".view.activity.MyActivity" />
         <activity android:name=".MainActivity"
             android:launchMode="singleTask"/>
+        <activity android:name=".view.activity.SearchActivity" />
+        <activity android:name=".view.activity.ArticleDetailActivity" />
     </application>
 
 </manifest>

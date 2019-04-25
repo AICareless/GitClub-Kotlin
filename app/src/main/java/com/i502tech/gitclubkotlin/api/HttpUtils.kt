@@ -39,7 +39,7 @@ object HttpUtils {
         return instance
     }
 
-    fun <T> ApiFunc(observable: Observable<BaseResponse<T>>, listener: (Resource<T>) -> Unit){
+    fun <T> create(observable: Observable<BaseResponse<T>>, listener: (Resource<T>) -> Unit){
         observable.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

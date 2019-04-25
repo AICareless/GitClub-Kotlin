@@ -5,13 +5,14 @@ import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.widget.LinearLayoutManager
 import com.i502tech.gitclubkotlin.base.BaseActivity
 import com.i502tech.gitclubkotlin.model.bean.Article
+import com.i502tech.gitclubkotlin.view.activity.ArticleDetailActivity
+import com.i502tech.gitclubkotlin.view.activity.SearchActivity
 import com.i502tech.gitclubkotlin.view.adapter.ArticleAdapter
 import com.i502tech.gitclubkotlin.viewmodel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-    var mData = mutableListOf<Article>()
     val adapter = ArticleAdapter()
     private var page: Int = 0
 
@@ -40,6 +41,12 @@ class MainActivity : BaseActivity() {
                         toast("正在加载...")
                     }else toast(resource?.msg)
                 })
+
+        viewModel.getArticleTotals()
+                .observe(this, Observer {
+                    if (it?.isSuccess == true)
+                        tv_num.text = "点击搜索，已收录"+(if (it.data != null) it.data else 0)+"个开源项目"
+                })
     }
 
     override fun initLisenter() {
@@ -48,7 +55,11 @@ class MainActivity : BaseActivity() {
             viewModel.getArticleList(page, 10)
         }
         adapter.setOnItemClickListener{adapter, view, position ->
-
+            val article = adapter.getItem(position) as Article
+            ArticleDetailActivity.start(this, article.title, article.link)
+        }
+        ll_search.setOnClickListener {
+            toActivity(SearchActivity::class.java)
         }
     }
 

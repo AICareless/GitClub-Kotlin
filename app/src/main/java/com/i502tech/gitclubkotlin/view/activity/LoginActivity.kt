@@ -1,4 +1,4 @@
-package com.i502tech.gitclubkotlin.view
+package com.i502tech.gitclubkotlin.view.activity
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -20,9 +20,11 @@ class LoginActivity: BaseActivity() {
     }
 
     override fun initData() {
-        if (SettingsPreferences.get().user != null){
-            toActivity(MainActivity::class.java)
-            finish()
+        SettingsPreferences.get().user ?.let {
+            if (it.user_id != 0){
+                toActivity(MainActivity::class.java)
+                finish()
+            }
         }
     }
 
@@ -47,7 +49,7 @@ class LoginActivity: BaseActivity() {
         }
 
         tv_register.setOnClickListener {
-            if (tv_register.text.equals("注册")){
+            if (tv_register.text == "注册"){
                 tv_register.text = "登录"
                 btn_login.text = "注册"
             }else {

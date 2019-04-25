@@ -17,8 +17,7 @@ class ArticleAdapter : BaseQuickAdapter<Article, BaseViewHolder>(R.layout.item_a
         // 获取item中的TextView
 
         holder.itemView.tv_title?.text = article.title
-        holder.itemView.tv_name_des?.text = "${article.user.nick_name}${article.des}"
-        holder.itemView.tv_name_des?.text = "${article.user.nick_name}${article.des}"
+        holder.itemView.tv_name_des?.text = article.user.nick_name + article.des
         GlideUtils.displayCircle(mContext, holder.itemView.iv_avater, article.user.avatar)
         var url = article.img_url
         if (url.endsWith("gif")){

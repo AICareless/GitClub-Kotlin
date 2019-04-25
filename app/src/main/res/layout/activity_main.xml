@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--<include layout="@layout/toolbar_layout"/>-->
     <LinearLayout
         android:id="@+id/ll_search"
         android:gravity="center_vertical"
@@ -25,14 +24,14 @@
             android:layout_marginStart="10dp"
             android:textSize="12sp"
             android:textColor="@color/text_hint"
-            android:text="点击搜索，已收录3000个开源项目"/>
+            android:text="点击搜索，已收录0个开源项目"/>
     </LinearLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refreshlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:background="@color/white">
 
         <android.support.v7.widget.RecyclerView
@@ -48,4 +47,4 @@
         android:layout_height="wrap_content"/>
 
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>
