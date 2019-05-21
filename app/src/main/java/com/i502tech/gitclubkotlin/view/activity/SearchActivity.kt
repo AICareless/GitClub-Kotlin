@@ -8,7 +8,8 @@ import android.view.inputmethod.EditorInfo
 import com.i502tech.gitclubkotlin.R
 import com.i502tech.gitclubkotlin.base.BaseActivity
 import com.i502tech.gitclubkotlin.model.bean.Article
-import com.i502tech.gitclubkotlin.utils.Utils
+import com.i502tech.gitclubkotlin.utils.hideKeyboard
+import com.i502tech.gitclubkotlin.utils.toast
 import com.i502tech.gitclubkotlin.view.adapter.ArticleAdapter
 import com.i502tech.gitclubkotlin.viewmodel.ArticleViewModel
 import com.zhy.view.flowlayout.FlowLayout
@@ -57,7 +58,8 @@ class SearchActivity: BaseActivity() {
 
         search_edit.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH){
-                Utils.hideKeyboard(this)
+
+                hideKeyboard()
                 flowlayout.visibility = View.GONE
                 viewModel.query(page, 10, search_edit.text.toString())
                 return@setOnEditorActionListener true
@@ -67,7 +69,7 @@ class SearchActivity: BaseActivity() {
 
 
         flowlayout.setOnTagClickListener { view, position, parent ->
-            Utils.hideKeyboard(this)
+            hideKeyboard()
             flowlayout.visibility = View.GONE
             search_edit.setText(tagAdapter.getItem(position))
             page = 0

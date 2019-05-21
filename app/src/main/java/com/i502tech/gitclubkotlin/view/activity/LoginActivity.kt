@@ -6,6 +6,7 @@ import com.i502tech.gitclubkotlin.MainActivity
 import com.i502tech.gitclubkotlin.R
 import com.i502tech.gitclubkotlin.app.SettingsPreferences
 import com.i502tech.gitclubkotlin.base.BaseActivity
+import com.i502tech.gitclubkotlin.utils.*
 import com.i502tech.gitclubkotlin.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -21,7 +22,7 @@ class LoginActivity: BaseActivity() {
 
     override fun initData() {
         SettingsPreferences.get().user ?.let {
-            if (it.user_id != 0){
+            if (it.userId != 0){
                 toActivity(MainActivity::class.java)
                 finish()
             }

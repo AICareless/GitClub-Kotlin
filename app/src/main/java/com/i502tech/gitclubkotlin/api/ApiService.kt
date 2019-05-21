@@ -13,7 +13,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @POST("login")
-    fun login(@Query("userName")userName:String, @Query("password")password:String):Observable<BaseResponse<User>>
+    fun login(@Query("username")userName:String, @Query("password")password:String):Observable<BaseResponse<User>>
 
 
     @POST("register")
@@ -33,11 +33,11 @@ interface ApiService {
 
     //我的点赞(收藏)文章列表
     @POST("getMyStarArticles")
-    fun getMyStarArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("user_id")user_id: Int): Observable<BaseResponse<List<Article>>>
+    fun getMyStarArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("userId")user_id: Int): Observable<BaseResponse<List<Article>>>
 
     //获取我贡献的文章列表
     @POST("getMyContributeArticles")
-    fun getMyContributeArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("user_id")user_id: Int): Observable<BaseResponse<List<Article>>>
+    fun getMyContributeArticles(@Query("page")page:Int, @Query("size")size:Int, @Query("userId")user_id: Int): Observable<BaseResponse<List<Article>>>
 
 
 

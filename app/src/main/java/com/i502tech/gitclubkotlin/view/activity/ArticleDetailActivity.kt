@@ -9,6 +9,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.i502tech.gitclubkotlin.R
 import com.i502tech.gitclubkotlin.base.BaseActivity
+import com.i502tech.gitclubkotlin.utils.toast
 import kotlinx.android.synthetic.main.activity_article_detail.*
 
 /**

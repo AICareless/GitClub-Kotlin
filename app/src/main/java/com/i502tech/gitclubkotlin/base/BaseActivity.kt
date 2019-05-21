@@ -19,8 +19,6 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 abstract class BaseActivity : RxAppCompatActivity() {
 
     private lateinit var mContext: Context
-    private var dialog: Dialog? = null
-    private var mToast: Toast? = null
     var toolbar: Toolbar? = null
     var abTitle: TextView? = null
 
@@ -71,28 +69,5 @@ abstract class BaseActivity : RxAppCompatActivity() {
             actionBar?.setDisplayShowTitleEnabled(false)
         }
     }
-
-    @SuppressLint("ShowToast")
-    fun toast(string: String?){
-        if (mToast == null){
-            mToast = Toast.makeText(this, string, Toast.LENGTH_SHORT)
-        }else{
-            mToast?.setText(string)
-        }
-        mToast?.show()
-    }
-
-    fun toActivity(clazz: Class<*>){
-        val intent = Intent(this, clazz)
-        startActivity(intent)
-    }
-
-    fun toActivity(clazz: Class<*>, bundle: Bundle){
-        val intent = Intent(this, clazz)
-        intent.putExtras(bundle)
-        startActivity(intent)
-    }
-
-
 
 }

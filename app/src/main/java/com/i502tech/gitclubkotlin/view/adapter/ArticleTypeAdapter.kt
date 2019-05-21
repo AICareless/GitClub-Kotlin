@@ -1,11 +1,12 @@
 package com.i502tech.gitclubkotlin.view.adapter
 
-import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.i502tech.gitclubkotlin.R
 import com.i502tech.gitclubkotlin.model.bean.Article
-import com.i502tech.gitclubkotlin.utils.GlideUtils
+import com.i502tech.gitclubkotlin.utils.loadCircle
+import com.i502tech.gitclubkotlin.utils.loadGif
+import com.i502tech.gitclubkotlin.utils.loadImage
 import kotlinx.android.synthetic.main.item_article_type.view.*
 
 /**
@@ -16,15 +17,15 @@ class ArticleTypeAdapter : BaseQuickAdapter<Article, BaseViewHolder>(R.layout.it
 
     override fun convert(helper: BaseViewHolder, article: Article) {
         helper.itemView.tv_title.text = article.title
-        helper.itemView.tv_name.text = article.user.nick_name
+        helper.itemView.tv_name.text = article.user.userName
         helper.itemView.tv_des.text = article.des
 
-        GlideUtils.displayCircle(mContext, helper.itemView.iv_avater, article.user.avatar)
-        val url = article.img_url
+        helper.itemView.iv_avater.loadCircle(article.user.avatar)
+        val url = article.imgUrl
         if (url.endsWith("gif")){
-            Glide.with(mContext).asGif().load(url).into(helper.itemView.iv_cover)
+            helper.itemView.iv_cover.loadGif(url)
         }else{
-            Glide.with(mContext).load(url).into(helper.itemView.iv_cover)
+            helper.itemView.iv_cover.loadImage(url)
         }
 
     }

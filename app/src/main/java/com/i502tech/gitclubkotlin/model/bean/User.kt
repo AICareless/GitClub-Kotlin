@@ -9,16 +9,16 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class User(
-        var admin_status: Int,
+        var adminStatus: Int,
         var avatar: String,
         var city: String,
         var date: String,
         var gender: String,
-        var nick_name: String,
-        var open_id: String,
+        var userName: String,
+        var openId: String,
         var score: Int,
-        var session_key: String,
-        var user_id: Int
+        var sessionKey: String,
+        var userId: Int
 ):Parcelable {
     constructor() : this(0, "","","","","","",0,"",0)
 }

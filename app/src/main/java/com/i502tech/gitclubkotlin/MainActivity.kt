@@ -5,6 +5,8 @@ import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.widget.LinearLayoutManager
 import com.i502tech.gitclubkotlin.base.BaseActivity
 import com.i502tech.gitclubkotlin.model.bean.Article
+import com.i502tech.gitclubkotlin.utils.toActivity
+import com.i502tech.gitclubkotlin.utils.toast
 import com.i502tech.gitclubkotlin.view.activity.ArticleDetailActivity
 import com.i502tech.gitclubkotlin.view.activity.SearchActivity
 import com.i502tech.gitclubkotlin.view.adapter.ArticleAdapter
